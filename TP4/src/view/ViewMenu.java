@@ -52,13 +52,13 @@ public class ViewMenu implements ActionListener {
 		Object src = e.getSource();
 		
 		if (src == perfume)
-			new ViewProdutos().mostrarDados(dados, 1); // trocar a nova View que será mostrada
+			new ViewPerfume().mostrarDados(dados, 1); // trocar a nova View que será mostrada
 
 		if (src == desodorante)
-			new ViewProdutos().mostrarDados(dados, 2); // trocar a nova View que será mostrada
+			new ViewDesodorante().mostrarDados(dados, 2); // trocar a nova View que será mostrada
 
 		if (src == hidratante)
-			new ViewProdutos().mostrarDados(dados, 3); // trocar a nova View que será mostrada
+			new ViewHidratante().mostrarDados(dados, 3); // trocar a nova View que será mostrada
 
 		if (src == venda)
 			new ViewVenda().mostrarDados(dados, 1); // trocar a nova View que será mostrada

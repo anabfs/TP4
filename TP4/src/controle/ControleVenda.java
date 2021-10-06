@@ -15,7 +15,7 @@ public class ControleVenda {
 		String[] s = new String[qtdVendas];
 		for (int i = 0; i < qtdVendas; i++) {
 
-			s[i] = "" + venda[i].getIDVenda();
+			s[i] = venda[i].getIDVenda();
 		}
 		return s;
     }

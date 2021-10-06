@@ -33,7 +33,7 @@ public class ViewVenda implements ActionListener, ListSelectionListener {
 			janela = new JFrame("Vendas");
 			titulo = new JLabel("Vendas Cadastradas");
 			cadastroVenda = new JButton("Cadastrar");
-			refreshVenda = new JButton("Atualizar");
+			refreshVenda = new JButton("Refresh");
 
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
 			titulo.setBounds(90, 10, 250, 30);
@@ -62,9 +62,9 @@ public class ViewVenda implements ActionListener, ListSelectionListener {
 			JOptionPane.showMessageDialog(null, "Opção não encontrada!", null, JOptionPane.ERROR_MESSAGE);
 		}
 
-	}
+	} 
 	
-	@Override
+	
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 
@@ -74,7 +74,7 @@ public class ViewVenda implements ActionListener, ListSelectionListener {
 		
 	}
 
-	@Override
+	
 	public void actionPerformed(ActionEvent e) {
 	Object src = e.getSource();
 

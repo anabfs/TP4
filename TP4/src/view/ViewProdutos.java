@@ -1,4 +1,4 @@
-package view;
+/*package view;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -136,7 +136,7 @@ public class ViewProdutos implements ActionListener, ListSelectionListener {
 
 	}
 
-	@Override
+	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 
@@ -166,7 +166,7 @@ public class ViewProdutos implements ActionListener, ListSelectionListener {
 
 	}
 
-	@Override
+	
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 
@@ -182,4 +182,4 @@ public class ViewProdutos implements ActionListener, ListSelectionListener {
 			new ViewDetalheProdutos().inserirEditar(6, dados, this, listaHidratanteCadastradas.getSelectedIndex());
 		}
 	}
-}
+}*/

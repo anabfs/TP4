@@ -15,7 +15,7 @@ public class ControleHidratante {
 	public String[] getNomeHidratante() {
 		String[] s = new String[qtdHidratante];
 		for (int i = 0; i < qtdHidratante; i++) {
-			s[i] = "" + hidra[i].getNomeProduto();
+			s[i] = hidra[i].getNomeProduto();
 		}
 		return s;
 	}

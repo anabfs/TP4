@@ -44,7 +44,7 @@ public class ViewDetalheCliente implements ActionListener {
 			valorNome = new JTextField(dados.getModeloCliente()[pos].getNomeCliente(),200);
 			valorEmail = new JTextField(dados.getModeloCliente()[pos].getEmailCliente(),200);
 			valorEnd = new JTextField(dados.getModeloCliente()[pos].getEnderecoCliente(),200);
-			valorTelefone = new JTextField(dados.getModeloCliente()[pos].getEmailCliente(),10);;			
+			valorTelefone = new JTextField(dados.getModeloCliente()[pos].getTelefoneCliente(),10);;			
 
 		} else {
 
@@ -67,12 +67,19 @@ public class ViewDetalheCliente implements ActionListener {
 		
 		
 		if (op == 1 || op == 2 ) {
+			this.janela.add(labelNome);
+			this.janela.add(valorNome);
+			this.janela.add(labelEmail);
+			this.janela.add(valorEmail);
 			this.janela.add(labelEnd);
 			this.janela.add(valorEnd);
+			this.janela.add(labelTelefone);
+			this.janela.add(valorTelefone);
+			this.janela.add(botaoSalvar);
 
 		}
 
-		if (op == 3) {
+		if (op == 2) {
 			botaoSalvar.setBounds(120, 175, 115, 30);
 			botaoExcluir.setBounds(245, 175, 115, 30);
 			this.janela.add(botaoExcluir);
@@ -110,9 +117,9 @@ public class ViewDetalheCliente implements ActionListener {
 					novoDado[0] = Integer.toString(posicao);
 
 				novoDado[1] =  valorNome.getText();
-				novoDado[3] =  valorEmail.getText();
+				novoDado[2] =  valorEmail.getText();
 				novoDado[4] =  valorTelefone.getText();			
-				novoDado[2] =  valorEnd.getText();
+				novoDado[3] =  valorEnd.getText();
 				res = dados.inserirEditarClientes(novoDado);
 
 

@@ -15,7 +15,7 @@ public class ControleDesodorante {
 	public String[] getNomeDesodorante() {
 		String[] s = new String[qtdDesodorante];
 		for (int i = 0; i < qtdDesodorante; i++) {
-			s[i] = "" + deso[i].getNomeProduto();
+			s[i] = deso[i].getNomeProduto();
 		}
 		return s;
 	}

@@ -1,4 +1,4 @@
-package view;
+/*package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -71,7 +71,7 @@ public class ViewDetalheProdutos implements ActionListener {
 
 			valorNomeProduto = new JTextField(dados.getModeloPerfume()[pos].getNomeProduto(), 200);
 			valorLinhaProduto = new JTextField(dados.getModeloPerfume()[pos].getLinhaProduto(), 200);
-			valorTamanho = new JTextField(200);
+			valorTamanho = new JTextField(String.valueOf(dados.getModeloPerfume()[pos].getTamanhoProduto()), 200);
 			valorMarca = new JTextField(dados.getModeloPerfume()[pos].getMarcaProduto(), 200);
 			valorPreco = new JTextField(String.valueOf(dados.getModeloPerfume()[pos].getPrecoProduto()), 200);
 			valorGenero = new JTextField(dados.getModeloPerfume()[pos].getGeneroPerfume(), 200);
@@ -83,7 +83,7 @@ public class ViewDetalheProdutos implements ActionListener {
 
 			valorNomeProduto = new JTextField(dados.getModeloDesodorante()[pos].getNomeProduto(), 200);
 			valorLinhaProduto = new JTextField(dados.getModeloDesodorante()[pos].getLinhaProduto(), 200);
-			valorTamanho = new JTextField(200);
+			valorTamanho = new JTextField(String.valueOf(dados.getModeloPerfume()[pos].getTamanhoProduto()), 200);
 			valorMarca = new JTextField(dados.getModeloDesodorante()[pos].getMarcaProduto(), 200);
 			valorPreco = new JTextField(String.valueOf(dados.getModeloDesodorante()[pos].getPrecoProduto()), 200);
 			valorGenero = new JTextField(dados.getModeloDesodorante()[pos].getGeneroDesodorante(), 200);
@@ -94,7 +94,7 @@ public class ViewDetalheProdutos implements ActionListener {
 
 			valorNomeProduto = new JTextField(dados.getModeloHidratante()[pos].getNomeProduto(), 200);
 			valorLinhaProduto = new JTextField(dados.getModeloHidratante()[pos].getLinhaProduto(), 200);
-			valorTamanho = new JTextField(200);
+			valorTamanho = new JTextField(String.valueOf(dados.getModeloPerfume()[pos].getTamanhoProduto()), 200);
 			valorMarca = new JTextField(dados.getModeloHidratante()[pos].getMarcaProduto(), 200);
 			valorPreco = new JTextField(String.valueOf(dados.getModeloHidratante()[pos].getPrecoProduto()), 200);
 			valorFamilia = new JTextField(dados.getModeloHidratante()[pos].getfamiliaHidratante(), 200);
@@ -303,7 +303,7 @@ public class ViewDetalheProdutos implements ActionListener {
 		botaoExcluir.addActionListener(this);
 	}
 
-	@Override
+	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if (src == botaoSalvar) {
@@ -427,4 +427,4 @@ public class ViewDetalheProdutos implements ActionListener {
 				null ,JOptionPane.ERROR_MESSAGE);
 	}
 
-}
+}*/

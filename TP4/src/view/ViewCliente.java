@@ -42,7 +42,7 @@ public class ViewCliente implements ActionListener, ListSelectionListener {
 			janela.add(cadastroCliente);
 			janela.add(refreshCliente);
 
-			janela.setSize(400, 400);
+			janela.setSize(400, 300);
 			janela.setVisible(true);
 
 			cadastroCliente.addActionListener(this);

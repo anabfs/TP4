@@ -15,7 +15,7 @@ public class ControlePerfume {
 	public String[] getNomePerfume() {
 		String[] s = new String[qtdPerfumes];
 		for (int i = 0; i < qtdPerfumes; i++) {
-			s[i] = "" + perfume[i].getNomeProduto();
+			s[i] = perfume[i].getNomeProduto();
 		}
 		return s;
 	}
