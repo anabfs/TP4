@@ -2,13 +2,21 @@ package controle;
 
 import modelo.*;
 
+/**
+ * Controla os dados do ModeloDados
+ * @author Ana Beatriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ControleDados {
-	
+
 	private ModeloDados d = new ModeloDados();
 	
 	public ControleDados() {
 		d.preCadastro();
 	}
+	
+	//-------------Gets e Sets ---------------------
 	
 	public ModeloDados getModeloDados() {
 		return d;
@@ -53,6 +61,11 @@ public class ControleDados {
 		return this.d.getQtdClientes();
 	}
 	
+	/**
+	 * Valida os dados inserir e/ou editar um perfume
+	 * @param dadosPerfume exporta os dados de um novo perfume
+	 * @return true quando for autorizado a inserir e/ou editar um perfume
+	 */
 	
 	public boolean inserirEditarPerfumes(String[] dadosPerfume) {
 
@@ -60,6 +73,12 @@ public class ControleDados {
 			d.inserirEditarPerfumes(p, Integer.parseInt(dadosPerfume[0]));
 			return true;
 	}
+	
+	/*
+	 * Método para remover um perfume
+	 * @param i posição do perfume que vai ser removido
+	 * @return true se o perfume foi removido com sucesso
+	 */
 	public boolean removerPerfumes(int i) {
 
 		String perfumeRemovido = d.getPerfume()[i].getNomeProduto();
@@ -83,6 +102,12 @@ public class ControleDados {
 		}
 	}
 	
+	/**
+	 *  Valida os dados inserir e/ou editar um desodorante
+	 * @param dadosDesodorante exporta os dados de um novo desodorante
+	 * @return true quando for autorizado a inserir e/ou editar um desodorante
+	 */
+	
 	public boolean inserirEditarDesodorantes(String[] dadosDesodorante) {
 
 			ModeloDesodorante p = new ModeloDesodorante(dadosDesodorante[1],dadosDesodorante[2], Integer.parseInt(dadosDesodorante[3]), dadosDesodorante[4], Float.parseFloat(dadosDesodorante[5]), dadosDesodorante[6], dadosDesodorante[7], dadosDesodorante[8]);
@@ -90,6 +115,12 @@ public class ControleDados {
 			return true;
 		
 	}
+
+	/**
+	 *  Método para remover um desodorante
+	 * @param i posição do desodorante que vai ser removido
+	 * @return true se o desodorante foi removido com sucesso
+	 */
 	public boolean removerDesodorantes(int i) {
 
 		String desodoranteRemovido = d.getDesodorante()[i].getNomeProduto();
@@ -113,7 +144,12 @@ public class ControleDados {
 			return true;
 		}
 	}
-	
+			 
+	/**
+	 * Valida os dados inserir e/ou editar um hidratante
+	 * @param dadosHidratante exporta os dados de um novo hidratante
+	 * @return true quando for autorizado a inserir e/ou editar um hidratante
+	 */
 	
 	public boolean inserirEditarHidratantes(String[] dadosHidratante) {
 
@@ -121,7 +157,14 @@ public class ControleDados {
 			d.inserirEditarHidratantes(p, Integer.parseInt(dadosHidratante[0]));
 			return true;
 		
-	}
+	} 
+			 
+	/**
+	 * Método para remover um hidratante
+	 * @param i posição do hidratante que vai ser removido
+	 * @return se o hidratante foi removido com sucesso
+	 */
+	
 	public boolean removerHidratantes(int i) {
 
 		String hidratanteRemovido = d.getHidratante()[i].getNomeProduto();
@@ -145,13 +188,24 @@ public class ControleDados {
 			return true;
 		}
 	}
-	
+
+	/**
+	 * Valida os dados inserir e/ou editar uma venda
+	 * @param dadosVenda exporta os dados de uma nova venda
+	 * @return true quando for autorizado a inserir e/ou editar uma venda
+	 */
 	public boolean inserirEditarVendas(String[] dadosVenda) {
 			ModeloVenda p = new ModeloVenda(dadosVenda[1], Float.parseFloat(dadosVenda[2]));
 			d.inserirEditarVendas(p, Integer.parseInt(dadosVenda[0]));
 			return true;
 		
 	}
+			 
+	/**
+	 * Método para remover uma venda
+	 * @param i posição da venda que vai ser removido
+	 * @return true se o perfume foi removido com sucesso
+	 */
 	public boolean removerVendas(int i) {
 
 		String vendaRemovido = d.getVenda()[i].getIDVenda();
@@ -175,13 +229,24 @@ public class ControleDados {
 			return true;
 		}
 	}
-	
+			 
+	/**
+	 * Valida os dados inserir e/ou editar um cliente
+	 * @param dadosClientes exporta os dados de um novo cliente
+	 * @return true quando for autorizado a inserir e/ou editar um cliente
+	 */
 	
 	public boolean inserirEditarClientes(String[] dadosClientes) {		
 		ModeloCliente cli = new ModeloCliente(dadosClientes[1], dadosClientes[2], dadosClientes[3], dadosClientes[4]);
 		d.inserirEditarClientes(cli, Integer.parseInt(dadosClientes[0]));
 		return true;
 	}
+			 
+	/**
+	 * Método para remover um cliente
+	 * @param i posição do cliente que vai ser removido
+	 * @return true se o perfume foi removido com sucesso
+	 */
 	
 	public boolean removerCliente(int i) {
 

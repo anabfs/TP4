@@ -16,6 +16,12 @@ import javax.swing.event.ListSelectionListener;
 
 import controle.*;
 
+/**
+ * Classe que contem as informações da view
+ * @author Ana Baetriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ViewHidratante implements ActionListener, ListSelectionListener {
 
 	private JFrame janela;
@@ -27,6 +33,12 @@ public class ViewHidratante implements ActionListener, ListSelectionListener {
 	private static ControleDados dados;
 	private JList<String> listaHidratanteCadastradas;
 	private String[] listaCodigos = new String[50];
+	
+	/**
+	 * Método para mostrar hidratantes cadastrados
+	 * @param d importa valores da ControleDados
+	 * @param op opção do menu
+	 */
 	
 	public void mostrarDados(ControleDados d, int op) {
 		dados = d;
@@ -75,18 +87,22 @@ public class ViewHidratante implements ActionListener, ListSelectionListener {
 			JOptionPane.showMessageDialog(null, "Opção não encontrada!", null, JOptionPane.ERROR_MESSAGE);
 		}
 	}
+	/**
+	 * Realiza as ações dos botões
+	 */
+	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if (src == cadastroHidratante)
+		if (src == cadastroHidratante) // Cadastrar um hidratante
 			new ViewDetalheHidratante().inserirEditar(1, dados, this, 0);
 		
-		if (src == refreshHidratante) {
+		if (src == refreshHidratante) { // Atualizar lista de hidratantes
 			listaHidratanteCadastradas.setListData(new ControleHidratante(dados).getNomeHidratante());
 			listaHidratanteCadastradas.updateUI();
 		}
 		
-		if (src == busca) {
+		if (src == busca) { //Pesquisar um hidratante pelo nome
 			String digitado = nomeBusca.getText();
 			int i = 0;
 			String[] nome = new String[1];
@@ -106,6 +122,11 @@ public class ViewHidratante implements ActionListener, ListSelectionListener {
 				mensagemErroBusca();
 		}
 	}
+	
+	/**
+	 * Realiza ações do JList
+	 */
+	
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 		if (e.getValueIsAdjusting() && src == listaHidratanteCadastradas) {

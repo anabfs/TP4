@@ -10,6 +10,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import controle.*;
 
+/**
+ * Classe que contem as informações da view
+ * @author Ana Baetriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ViewDetalheCliente implements ActionListener {
 	
 	private JFrame janela;
@@ -29,6 +35,13 @@ public class ViewDetalheCliente implements ActionListener {
 	private int opcao;
 	private String s;
 
+	/**
+	 * Método para inserir e/ou editar cliente
+	 * @param op opção selecionada
+	 * @param d importa valores da ControleDados
+	 * @param v dados da ViewCliente 
+	 * @param pos posição do cliente
+	 */
 	public void inserirEditar(int op, ControleDados d, ViewCliente v, int pos) {
 
 		opcao = op;
@@ -40,13 +53,13 @@ public class ViewDetalheCliente implements ActionListener {
 		
 		janela = new JFrame(s);
 
-		if (op == 2) {
+		if (op == 2) { // Mostrar dados cadastrados
 			valorNome = new JTextField(dados.getModeloCliente()[pos].getNomeCliente(),200);
 			valorEmail = new JTextField(dados.getModeloCliente()[pos].getEmailCliente(),200);
 			valorEnd = new JTextField(dados.getModeloCliente()[pos].getEnderecoCliente(),200);
 			valorTelefone = new JTextField(dados.getModeloCliente()[pos].getTelefoneCliente(),10);;			
 
-		} else {
+		} else { // Inserir dados
 
 			valorNome = new JTextField(200);
 			valorEmail = new JTextField(200);
@@ -106,6 +119,9 @@ public class ViewDetalheCliente implements ActionListener {
 	}
 
 
+	/**
+	 * Inserir dados
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		

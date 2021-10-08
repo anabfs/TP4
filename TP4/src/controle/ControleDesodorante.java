@@ -2,16 +2,30 @@ package controle;
 
 import modelo.ModeloDesodorante;
 
+/**
+ * Controla os dados do ModeloDesodorante
+ * @author Ana Beatriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ControleDesodorante {
 	
 	private ModeloDesodorante[] deso;
 	private int qtdDesodorante;
 
+	/**
+	 * Importa os dados do dosodorante
+	 * @param d importa valores da ControleDesodorante
+	 */
 	public ControleDesodorante(ControleDados d) {
 		deso = d.getModeloDesodorante();
 		qtdDesodorante = d.getQtdDesodorante();
 	}
 
+	/**
+	 * Método para listar os desodorante
+	 * @return s retorna o nome do desodorante
+	 */
 	public String[] getNomeDesodorante() {
 		String[] s = new String[qtdDesodorante];
 		for (int i = 0; i < qtdDesodorante; i++) {
@@ -20,6 +34,8 @@ public class ControleDesodorante {
 		return s;
 	}
 
+	//-------------Gets e Sets ---------------------
+	
 	public int getQtd() {
 		return qtdDesodorante;
 	}

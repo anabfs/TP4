@@ -16,6 +16,12 @@ import javax.swing.event.ListSelectionListener;
 
 import controle.*;
 
+/**
+ * Classe que contem as informações da view
+ * @author Ana Baetriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ViewDesodorante implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JLabel titulo;
@@ -26,6 +32,12 @@ public class ViewDesodorante implements ActionListener, ListSelectionListener {
 	private static ControleDados dados;
 	private JList<String> listaDesodorantesCadastradas;
 	private String[] listaCodigos = new String[50];
+	
+	/**
+	 * Método para mostrar desodorantes cadastrados
+	 * @param d importa valores da ControleDados
+	 * @param op opção do menu
+	 */
 	
 	public void mostrarDados(ControleDados d, int op) {
 		dados = d;
@@ -71,17 +83,22 @@ public class ViewDesodorante implements ActionListener, ListSelectionListener {
 			JOptionPane.showMessageDialog(null, "Opção não encontrada!", null, JOptionPane.ERROR_MESSAGE);
 		}
 	}
+	
+	/**
+	 * Realiza as ações dos botões
+	 */
+	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		if (src == cadastroDesodorante)
+		if (src == cadastroDesodorante) // Cadastrar desodorante
 			new ViewDetalheDesodorante().inserirEditar(1, dados, this, 0);
 		
-		if (src == refreshDesodorante) {
+		if (src == refreshDesodorante) { // Atualizar lista de desodorantes
 			listaDesodorantesCadastradas.setListData(new ControleDesodorante(dados).getNomeDesodorante());
 			listaDesodorantesCadastradas.updateUI();
 		}
 		
-		if (src == busca) {
+		if (src == busca) { // Pesquisar desodorante pelo nome
 			String digitado = nomeBusca.getText();
 			int i = 0;
 			String[] nome = new String[1];
@@ -101,6 +118,11 @@ public class ViewDesodorante implements ActionListener, ListSelectionListener {
 				mensagemErroBusca();
 		}
 	}
+	
+	/**
+	 * Realiza ações do JList
+	 */
+	
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 	

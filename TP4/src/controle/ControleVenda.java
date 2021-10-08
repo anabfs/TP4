@@ -2,15 +2,29 @@ package controle;
 
 import modelo.ModeloVenda;
 
+/**
+ * Controla os dados do ModeloVenda
+ * @author Ana Beatriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ControleVenda {
 	private ModeloVenda[] venda;
 	private int qtdVendas;
 
+	/**
+	 * Importa os dados da venda
+	 * @param d importa valores da ControleVenda
+	 */
     public ControleVenda(ControleDados d) {
     	venda = d.getModeloVenda();
 		qtdVendas = d.getQtdVenda();
     }
 	
+    /**
+	 * Método para listar as vendas
+	 * @returns s retorna o número de identificação da venda
+	 */
 	public String[] getIDVenda() {
 		String[] s = new String[qtdVendas];
 		for (int i = 0; i < qtdVendas; i++) {
@@ -19,6 +33,8 @@ public class ControleVenda {
 		}
 		return s;
     }
+	
+	//-------------Gets e Sets ---------------------
 	
 	public int getQtd() {
 		return qtdVendas;

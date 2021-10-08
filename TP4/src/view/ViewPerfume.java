@@ -16,6 +16,12 @@ import javax.swing.event.ListSelectionListener;
 
 import controle.*;
 
+/**
+ * Classe que contem as informações da view
+ * @author Ana Baetriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ViewPerfume implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JLabel titulo;
@@ -27,6 +33,12 @@ public class ViewPerfume implements ActionListener, ListSelectionListener {
 	private JList<String> listaPerfumeCadastrados;
 	
 	private String[] listaCodPerfume = new String[50];
+	
+	/**
+	 * Método para mostrar perfumes cadastrados
+	 * @param d importa valores da ControleDados
+	 * @param op opção do menu
+	 */
 	
 	public void mostrarDados(ControleDados d, int op) {
 		dados = d;
@@ -77,18 +89,22 @@ public class ViewPerfume implements ActionListener, ListSelectionListener {
 		}
 	}
 	
+	/**
+	 * Realiza as ações dos botões
+	 */
+	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 
-		if (src == cadastroPerfume)
+		if (src == cadastroPerfume) // Cadastrar perfume
 			new ViewDetalhePerfume().inserirEditar(1, dados, this, 0);
 		
-		if (src == refreshPerfume) {
+		if (src == refreshPerfume) { // Atualizar lista de perfumes
 			listaPerfumeCadastrados.setListData(new ControlePerfume(dados).getNomePerfume());
 			listaPerfumeCadastrados.updateUI();
 		}
 		
-		if (src == busca) {
+		if (src == busca) { // Pesquisar um perfume pelo nome
 			String digitado = nomeBusca.getText();
 			int i = 0;
 			String[] nome = new String[1];
@@ -109,6 +125,10 @@ public class ViewPerfume implements ActionListener, ListSelectionListener {
 		}
 		
 	}
+	
+	/**
+	 * Realiza ações do JList
+	 */
 	
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();

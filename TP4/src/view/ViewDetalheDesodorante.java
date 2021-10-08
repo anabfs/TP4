@@ -11,6 +11,12 @@ import javax.swing.JTextField;
 
 import controle.ControleDados;
 
+/**
+ * Classe que contem as informações da view
+ * @author Ana Baetriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ViewDetalheDesodorante implements ActionListener {
 	private JFrame janela;
 	private JLabel labelNomeProduto = new JLabel("Nome: ");
@@ -38,6 +44,14 @@ public class ViewDetalheDesodorante implements ActionListener {
 	private int opcao;
 	private String s;
 	
+	/**
+	 * Método para inserir e/ou editar desodorantes
+	 * @param op opção selecionada
+	 * @param d importa valores da ControleDados
+	 * @param v dados da ViewDesodorante
+	 * @param pos posição do desodorante
+	 */
+	
 	public void inserirEditar(int op, ControleDados d, ViewDesodorante p, int pos) {
 		opcao = op;
 		posicao = pos;
@@ -50,7 +64,7 @@ public class ViewDetalheDesodorante implements ActionListener {
 		
 		janela = new JFrame(s);
 		
-		if(op == 2) {
+		if(op == 2) { // Mostrar dados cadastrados
 			valorNomeProduto = new JTextField(dados.getModeloDesodorante()[pos].getNomeProduto(), 200);
 			valorLinhaProduto = new JTextField(dados.getModeloDesodorante()[pos].getLinhaProduto(), 200);
 			valorTamanho = new JTextField(String.valueOf(dados.getModeloPerfume()[pos].getTamanhoProduto()), 200);
@@ -59,7 +73,7 @@ public class ViewDetalheDesodorante implements ActionListener {
 			valorGenero = new JTextField(dados.getModeloDesodorante()[pos].getGeneroDesodorante(), 200);
 			valorTipo = new JTextField(dados.getModeloDesodorante()[pos].getTipoDesodorante(), 200);
 			valorDescricao = new JTextField(dados.getModeloDesodorante()[pos].getdescricaoDesodorante(), 1200);
-		}else {
+		}else { // Inserir dados
 			valorNomeProduto = new JTextField(200); 
 			valorLinhaProduto = new JTextField(200);
 			valorTamanho = new JTextField(200);
@@ -121,6 +135,9 @@ public class ViewDetalheDesodorante implements ActionListener {
 		botaoExcluir.addActionListener(this);
 		
 	}
+	/**
+	 * Inserir dados
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if (src == botaoSalvar) {

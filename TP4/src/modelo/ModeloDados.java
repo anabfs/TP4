@@ -1,6 +1,13 @@
 package modelo;
 
+/**
+ * Classe que define os atributos e metodos do objeto
+ * @author Ana Beatriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ModeloDados {
+	//-------------Atributos da classe----------------
 	
 	private  ModeloPerfume[] perfumes = new ModeloPerfume[50];
 	private  ModeloDesodorante[] desodorantes = new ModeloDesodorante[50];
@@ -13,6 +20,8 @@ public class ModeloDados {
 	private int qtdHidratantes = 0;
 	private int qtdVendas = 0;
 	private int qtdClientes = 0;
+	
+	//-------------Gets e Sets ---------------------
 	
     public ModeloPerfume[] getPerfume() {
         return perfumes;
@@ -85,33 +94,64 @@ public class ModeloDados {
 	}
 	
 	
-	
+	/**
+	 * Método para inserir e/ou editar um perfume
+	 * @param perf refere-se a classe ModeloPerfume
+	 * @param pos variavel que informa a posicao do cliente
+	 */
 	public void inserirEditarPerfumes(ModeloPerfume perf, int pos) {
 		this.perfumes[pos] = perf;
 		if (pos == qtdPerfumes)
 			qtdPerfumes++;
 	}
+	
+	/**
+	 * Método para inserir e/ou editar um desodorante
+	 * @param des refere-se a classe ModeloDesodorante
+	 * @param pos variavel que informa a posicao do desodorante
+	 */
 	public void inserirEditarDesodorante(ModeloDesodorante des, int pos) {
 		this.desodorantes[pos] = des;
 		if (pos == qtdDesodorantes)
 			qtdDesodorantes++;
 	}
+	
+	/**
+	 * Método para inserir e/ou editar um hidratante
+	 * @param hid refere-se a classe ModeloHidratantes
+	 * @param pos variavel que informa a posicao do hidratante
+	 */
 	public void inserirEditarHidratantes(ModeloHidratante hid, int pos) {
 		this.hidratantes[pos] = hid;
 		if (pos == qtdHidratantes)
 			qtdHidratantes++;
 	}
+	
+	/**
+	 * Método para inserir e/ou editar uma venda
+	 * @param vend refere-se a classe ModeloVenda
+	 * @param pos variavel que informa a posicao da venda
+	 */
 	public void inserirEditarVendas(ModeloVenda vend, int pos) {
 		this.vendas[pos] = vend;
 		if (pos == qtdVendas)
 			qtdVendas++;
 	}
+	
+	/**
+	 * Método para inserir e/ou editar um cliente
+	 * @param client refere-se a classe ModeloCliente
+	 * @param pos variavel que informa a posicao do cliente
+	 */
 	public void inserirEditarClientes(ModeloCliente client, int pos) {
 		this.clientes[pos] = client;
 		if (pos == qtdClientes)
 			qtdClientes++;
 	}
 	
+	/**
+	 * Dados pré cadastrados no banco de dados.
+	 */
     public void preCadastro() {
     	clientes[0] = (new ModeloCliente("Ana", "ana@gmail.com", "Brasília", "61123456789"));
     	clientes[1] = (new ModeloCliente("Jefferson", "jefferson@gmail.com", "Gama", "61987654321"));

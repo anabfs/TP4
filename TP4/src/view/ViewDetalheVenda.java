@@ -11,6 +11,12 @@ import javax.swing.JTextField;
 
 import controle.ControleDados;
 
+/**
+ * Classe que contem as informações da view
+ * @author Ana Baetriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ViewDetalheVenda implements ActionListener {
 	
 	private JFrame janela;
@@ -26,6 +32,14 @@ public class ViewDetalheVenda implements ActionListener {
 	private int opcao;
 	private String s;
 
+	/**
+	 * Método para inserir e/ou editar vendas
+	 * @param op opção selecionada
+	 * @param d importa valores da ControleDados
+	 * @param v dados da ViewVendas
+	 * @param pos posição da venda
+	 */
+	
 	public void inserirEditar(int op, ControleDados d, ViewVenda p, int pos) {
 
 		opcao = op;
@@ -39,12 +53,12 @@ public class ViewDetalheVenda implements ActionListener {
 
 		janela = new JFrame(s);
 
-		if (op == 2) {
+		if (op == 2) { // Mostrar dados cadastrados
 
 			valorIDVenda = new JTextField(String.valueOf(dados.getModeloVenda()[pos].getIDVenda()), 200);
 			valorPrecoVenda = new JTextField(String.valueOf(dados.getModeloVenda()[pos].getPrecoVenda()), 200);
 
-		} else {
+		} else { // Inserir dados
 
 			valorIDVenda = new JTextField(200);
 			valorPrecoVenda = new JTextField(200);
@@ -78,6 +92,10 @@ public class ViewDetalheVenda implements ActionListener {
 		botaoSalvar.addActionListener(this);
 		botaoExcluir.addActionListener(this);
 	}
+	
+	/**
+	 * Inserir dados
+	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();

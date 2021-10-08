@@ -11,6 +11,12 @@ import javax.swing.JTextField;
 
 import controle.ControleDados;
 
+/**
+ * Classe que contem as informações da view
+ * @author Ana Baetriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ViewDetalhePerfume implements ActionListener {
 	private JFrame janela;
 	private JLabel labelNomeProduto = new JLabel("Nome: ");
@@ -40,6 +46,14 @@ public class ViewDetalhePerfume implements ActionListener {
 	private int opcao;
 	private String s;
 
+	/**
+	 * Método para inserir e/ou editar perfume
+	 * @param op opção selecionada
+	 * @param d importa valores da ControleDados
+	 * @param p dados da ViewPerfume
+	 * @param pos posição do perfume
+	 */
+	
 	public void inserirEditar(int op, ControleDados d, ViewPerfume p, int pos) {
 		opcao = op;
 		posicao = pos;
@@ -52,7 +66,7 @@ public class ViewDetalhePerfume implements ActionListener {
 		
 		janela = new JFrame(s);
 		
-		if (op == 2) {
+		if (op == 2) { // Mostrar dados cadastrados
 
 			valorNomeProduto = new JTextField(dados.getModeloPerfume()[pos].getNomeProduto(), 200);
 			valorLinhaProduto = new JTextField(dados.getModeloPerfume()[pos].getLinhaProduto(), 200);
@@ -64,7 +78,7 @@ public class ViewDetalhePerfume implements ActionListener {
 			valorSub = new JTextField(dados.getModeloPerfume()[pos].getSubPerfume(), 200);
 			valorConsen = new JTextField(dados.getModeloPerfume()[pos].getConsenPerfume(), 200);
 			
-		}else {
+		}else { // Inserir dados
 			valorNomeProduto = new JTextField(200); 
 			valorLinhaProduto = new JTextField(200);
 			valorTamanho = new JTextField(200);
@@ -132,6 +146,10 @@ public class ViewDetalhePerfume implements ActionListener {
 		botaoExcluir.addActionListener(this);
 	}
 
+	/**
+	 * Inserir dados
+	 */
+	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if (src == botaoSalvar) {
@@ -179,18 +197,28 @@ public class ViewDetalhePerfume implements ActionListener {
 
 		}
 		
-	}	public void mensagemSucessoExclusao() {
+	}	
+	/**
+	 * Mensagem que deve aparecer na tela
+	 */
+	public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
 
+	/**
+	 * Mensagem que deve aparecer na tela 
+	 */
 	public void mensagemSucessoCadastro() {
 		JOptionPane.showMessageDialog(null, "Os dados foram salvos com sucesso!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
 
+	/**
+	 * Mensagem que deve aparecer na tela caso algo de errado
+	 */
 	public void mensagemErroCadastro() {
 		JOptionPane.showMessageDialog(null,"ERRO AO SALVAR OS DADOS!\n "+ "Pode ter ocorrido um dos dois erros a seguir:  \n"
 				+ "1. Nem todos os campos foram preenchidos \n"
@@ -198,6 +226,9 @@ public class ViewDetalhePerfume implements ActionListener {
 				JOptionPane.ERROR_MESSAGE);
 	}
 
+	/**
+	 * Mensagem que deve aparecer na tela caso algo de errado
+	 */
 	public void mensagemErroExclusao() {
 		JOptionPane.showMessageDialog(null,"Ocorreu um erro ao excluir o dado.\n " , null, 
 				JOptionPane.ERROR_MESSAGE);

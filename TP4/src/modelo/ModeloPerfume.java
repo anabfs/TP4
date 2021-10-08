@@ -1,11 +1,31 @@
 package modelo;
 
+/**
+ * Classe que define os atributos e metodos do objeto
+ * @author Ana Beatriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ModeloPerfume extends ModeloProduto {
+	//-------------Atributos da classe----------------
+	
 	private String generoPerfume;
 	private String familiaPerfume;
 	private String subPerfume;
 	private String consenPerfume;
 
+	/**
+	 * Construtor Perfume
+	 * @param nomeProduto refente ao nome do perfume
+	 * @param linhaProduto referente a linha do perfume
+	 * @param tamanhoProduto referente ao tamanho do perfume em ml
+	 * @param marcaProduto referente ao nome da marca do perfume
+	 * @param precoProduto refente ao preço do perfume em reais
+	 * @param generoPerfume referente ao genero indicativo do perfume
+	 * @param familiaPerfume referente a familia olfativa do perfume
+	 * @param subPerfume refente a sub familia olfativa do perfume
+	 * @param consenPerfume refernte a consentração do perfume
+	 */
 	public ModeloPerfume(String nomeProduto, String linhaProduto, int tamanhoProduto, String marcaProduto, float precoProduto,
 		String generoPerfume, String familiaPerfume, String subPerfume, String consenPerfume) {
 		super(nomeProduto, linhaProduto, tamanhoProduto, marcaProduto, precoProduto);
@@ -14,6 +34,8 @@ public class ModeloPerfume extends ModeloProduto {
 		this.subPerfume = subPerfume;
 		this.consenPerfume = consenPerfume;
 	}
+	
+	//-------------Gets e Sets ---------------------
 	
 	public String getGeneroPerfume() {
 		return generoPerfume;

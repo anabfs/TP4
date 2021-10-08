@@ -11,6 +11,12 @@ import javax.swing.JTextField;
 
 import controle.ControleDados;
 
+/**
+ * Classe que contem as informações da view
+ * @author Ana Baetriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ViewDetalheHidratante implements ActionListener {
 	
 	private JFrame janela;
@@ -39,6 +45,14 @@ public class ViewDetalheHidratante implements ActionListener {
 	private int opcao;
 	private String s;
 	
+	/**
+	 * Método para inserir e/ou editar hidratante
+	 * @param op opção selecionada
+	 * @param d importa valores da ControleDados
+	 * @param v dados da ViewHidratante
+	 * @param pos posição do hidratante
+	 */
+	
 	public void inserirEditar(int op, ControleDados d, ViewHidratante p, int pos) {
 		opcao = op;
 		posicao = pos;
@@ -51,7 +65,7 @@ public class ViewDetalheHidratante implements ActionListener {
 		
 		janela = new JFrame(s);
 		
-		if(op == 2) {
+		if(op == 2) { // Mostrar dados cadastrados
 			valorNomeProduto = new JTextField(dados.getModeloHidratante()[pos].getNomeProduto(), 200);
 			valorLinhaProduto = new JTextField(dados.getModeloHidratante()[pos].getLinhaProduto(), 200);
 			valorTamanho = new JTextField(String.valueOf(dados.getModeloPerfume()[pos].getTamanhoProduto()), 200);
@@ -60,7 +74,7 @@ public class ViewDetalheHidratante implements ActionListener {
 			valorFamilia = new JTextField(dados.getModeloHidratante()[pos].getfamiliaHidratante(), 200);
 			valorTipo = new JTextField(dados.getModeloHidratante()[pos].getTipoHidratante(), 200);
 			valorDescricao = new JTextField(dados.getModeloHidratante()[pos].getdescricaoHidratante(), 200);
-		}else {
+		}else { // Inserir dados
 			valorNomeProduto = new JTextField(200); 
 			valorLinhaProduto = new JTextField(200);
 			valorTamanho = new JTextField(200);
@@ -122,6 +136,9 @@ public class ViewDetalheHidratante implements ActionListener {
 		botaoSalvar.addActionListener(this);
 		botaoExcluir.addActionListener(this);		
 	}
+	/**
+	 * Inserir dados
+	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();

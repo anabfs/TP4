@@ -5,6 +5,12 @@ import java.awt.event.*;
 import javax.swing.*;
 import controle.*;
 
+/**
+ * Classe que contem as informações da view
+ * @author Ana Baetriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ViewMenu implements ActionListener {
 	private static JFrame janela = new JFrame("Controle da Perfumaria");
 	private static JLabel titulo = new JLabel("Menu Principal");
@@ -48,6 +54,10 @@ public class ViewMenu implements ActionListener {
 		cliente.addActionListener(menu);
 		venda.addActionListener(menu);
 	}
+	
+	/**
+	 * Realiza as ações dos botões
+	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();

@@ -15,6 +15,12 @@ import javax.swing.event.ListSelectionListener;
 
 import controle.*;
 
+/**
+ * Classe que contem as informações da view
+ * @author Ana Baetriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ViewVenda implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JLabel titulo;
@@ -24,6 +30,12 @@ public class ViewVenda implements ActionListener, ListSelectionListener {
 	private JList<String> listaVendasCadastradas;
 	private String[] listaCodVendas = new String[50];
 
+	/**
+	 * Método para mostrar vendas cadastradas
+	 * @param d importa valores da ControleDados
+	 * @param op opção do menu
+	 */
+	
 	public void mostrarDados(ControleDados d, int op) {
 		dados = d;
 
@@ -65,6 +77,9 @@ public class ViewVenda implements ActionListener, ListSelectionListener {
 
 	} 
 	
+	/**
+	 * Realiza ações do JList
+	 */
 	
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
@@ -75,14 +90,17 @@ public class ViewVenda implements ActionListener, ListSelectionListener {
 		
 	}
 
+	/**
+	 * Realiza as ações dos botões
+	 */
 	
 	public void actionPerformed(ActionEvent e) {
 	Object src = e.getSource();
 
-	if (src == cadastroVenda)
+	if (src == cadastroVenda) // Cadastrar venda
 		new ViewDetalheVenda().inserirEditar(1, dados, this, 0);
 
-	if (src == refreshVenda) {
+	if (src == refreshVenda) { // Atualizar lista de vendas
 		listaVendasCadastradas.setListData(new ControleVenda(dados).getIDVenda());
 		listaVendasCadastradas.updateUI();
 		}

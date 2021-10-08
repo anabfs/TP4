@@ -1,17 +1,32 @@
 package modelo;
 
+/**
+ * Classe que define os atributos e metodos do objeto
+ * @author Ana Beatriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
+
 public class ModeloVenda {
 
+	//-------------Atributos da classe----------------
+	
     private String IDVenda;
     private ModeloProduto produtoVenda;
     private float precoVenda;
     private int qtdVendas;
 
+    /**
+     * Contrutor Venda
+     * @param idvenda referete ao número de identificação da venda
+     * @param precoVenda referente ao valor da venda
+     */
     public ModeloVenda(String idvenda, float precoVenda) {
         this.IDVenda = idvenda;
         this.precoVenda = precoVenda;
     }
 
+    //-------------Gets e Sets ---------------------
+    
     public String getIDVenda() {
         return IDVenda;
     }

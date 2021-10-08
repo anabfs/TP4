@@ -6,6 +6,11 @@ import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
 
+/**
+ * Classe que contem as informações da view
+ * @author Ana Baetriz Santos e Jefferson França
+ * @version 1.0 (Out 2021)
+ */
 public class ViewCliente implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JLabel titulo;
@@ -17,6 +22,11 @@ public class ViewCliente implements ActionListener, ListSelectionListener {
 	private JList<String> listaClientesCadastrados;
 	private String[] listaNomes = new String[50];
 	
+	/**
+	 * Método para mostrar clientes cadastrados
+	 * @param d importa valores da ControleDados
+	 * @param op opção do menu
+	 */
 	public void mostrarDados(ControleDados d, int op){
 		dados = d;
 		switch (op) {
@@ -69,18 +79,21 @@ public class ViewCliente implements ActionListener, ListSelectionListener {
 
 	}
 
+	/**
+	 * Realiza as ações dos botões
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if(src == cadastroCliente)
+		if(src == cadastroCliente) //Cadastra um novo cliente
 			new ViewDetalheCliente().inserirEditar(1, dados, this, 0);
 
-		if(src == refreshCliente) {
+		if(src == refreshCliente) { //Atualiza a lista com os nomes dos clientes
 			listaClientesCadastrados.setListData(new ControleCliente(dados).getNomeCliente());			
 			listaClientesCadastrados.updateUI();
 		}
 		
-		if (src == busca) {
+		if (src == busca) { //Pesquisa um cliente pelo nome
 			String digitado = nomeBusca.getText();
 			int i = 0;
 			String[] nome = new String[1];
@@ -103,6 +116,9 @@ public class ViewCliente implements ActionListener, ListSelectionListener {
 
 	}
 
+	/**
+	 * Realiza ações do JList
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 
