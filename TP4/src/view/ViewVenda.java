@@ -41,8 +41,8 @@ public class ViewVenda implements ActionListener, ListSelectionListener {
 			listaVendasCadastradas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listaVendasCadastradas.setVisibleRowCount(10);
 
-			cadastroVenda.setBounds(70, 177, 100, 30);
-			refreshVenda.setBounds(200, 177, 100, 30);
+			cadastroVenda.setBounds(70, 190, 100, 30);
+			refreshVenda.setBounds(200, 190, 100, 30);
 
 			janela.setLayout(null);
 
@@ -51,7 +51,8 @@ public class ViewVenda implements ActionListener, ListSelectionListener {
 			janela.add(cadastroVenda);
 			janela.add(refreshVenda);
 
-			janela.setSize(400, 250);
+			janela.setSize(400, 280);
+			janela.setLocationRelativeTo(null);
 			janela.setVisible(true);
 
 			cadastroVenda.addActionListener(this);

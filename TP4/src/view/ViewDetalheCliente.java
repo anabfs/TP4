@@ -66,7 +66,7 @@ public class ViewDetalheCliente implements ActionListener {
 		valorTelefone.setBounds(180, 110, 180, 25);
 		
 		
-		if (op == 1 || op == 2 ) {
+		if (op == 1) {
 			this.janela.add(labelNome);
 			this.janela.add(valorNome);
 			this.janela.add(labelEmail);
@@ -98,6 +98,7 @@ public class ViewDetalheCliente implements ActionListener {
 		this.janela.setLayout(null);
 
 		this.janela.setSize(400, 250);
+		janela.setLocationRelativeTo(null);
 		this.janela.setVisible(true);
 
 		botaoSalvar.addActionListener(this);
@@ -142,11 +143,10 @@ public class ViewDetalheCliente implements ActionListener {
 			if (opcao == 2) {
 				res = dados.removerCliente(posicao);
 				if (res) mensagemSucessoExclusao(); 
-				else mensagemErroExclusaoAluno(); 
+				else mensagemErroExclusaoCliente(); 
 			}
 		}
 	}
-
 	public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
@@ -163,25 +163,12 @@ public class ViewDetalheCliente implements ActionListener {
 		JOptionPane.showMessageDialog(null,"ERRO AO SALVAR OS DADOS!\n "
 				+ "Pode ter ocorrido um dos dois erros a seguir:  \n"
 				+ "1. Nem todos os campos foram preenchidos \n"
-				+ "2. CPF, identidade, DDD e telefone não contém apenas números", null, 
+				+ "2. Telefone não contém apenas números", null, 
 				JOptionPane.ERROR_MESSAGE);
 	}
 
-	public void mensagemErroExclusaoAluno() {
-		JOptionPane.showMessageDialog(null,"Ocorreu um erro ao excluir o dado.\n "
-				+ "Verifique se o aluno está matriculado\n"
-				+ "em alguma disciplina. Se sim, cancele\n "
-				+ "a matricula e tente novamente.", null, 
+	public void mensagemErroExclusaoCliente() {
+		JOptionPane.showMessageDialog(null,"Ocorreu um erro ao excluir o dado.\n ", null, 
 				JOptionPane.ERROR_MESSAGE);
 	}
-	
-	public void mensagemErroExclusaoProf() {
-		JOptionPane.showMessageDialog(null,"Ocorreu um erro ao excluir o dado.\n "
-				+ "Verifique se o professor está responsável\n"
-				+ "por alguma disciplina. Se sim, substitua\n "
-				+ "o professor e tente novamente.", null, 
-				JOptionPane.ERROR_MESSAGE);
-	}
-
-
 }

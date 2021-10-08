@@ -58,8 +58,8 @@ public class ViewDetalheVenda implements ActionListener {
 		valorPrecoVenda.setBounds(180, 80, 200, 25);
 
 		if (op == 2) {
-			botaoSalvar.setBounds(140, 240, 115, 30);
-			botaoExcluir.setBounds(265, 240, 115, 30);
+			botaoSalvar.setBounds(140, 130, 115, 30);
+			botaoExcluir.setBounds(265, 130, 115, 30);
 			this.janela.add(botaoExcluir);
 		}
 
@@ -71,7 +71,8 @@ public class ViewDetalheVenda implements ActionListener {
 
 		this.janela.setLayout(null);
 
-		this.janela.setSize(450, 330);
+		this.janela.setSize(450, 230);
+		janela.setLocationRelativeTo(null);
 		this.janela.setVisible(true);
 
 		botaoSalvar.addActionListener(this);

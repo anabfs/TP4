@@ -11,6 +11,8 @@ public class ViewCliente implements ActionListener, ListSelectionListener {
 	private JLabel titulo;
 	private JButton cadastroCliente;
 	private JButton refreshCliente;
+	private JButton busca;
+	private JTextField nomeBusca;
 	private static ControleDados dados;
 	private JList<String> listaClientesCadastrados;
 	private String[] listaNomes = new String[50];
@@ -25,6 +27,8 @@ public class ViewCliente implements ActionListener, ListSelectionListener {
 			titulo = new JLabel("Clientes Cadastrados");
 			cadastroCliente = new JButton("Cadastrar");
 			refreshCliente = new JButton("Refresh");
+			busca = new JButton("Pesquisar");
+			nomeBusca = new JTextField();
 
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
 			titulo.setBounds(90, 10, 250, 30);
@@ -32,8 +36,11 @@ public class ViewCliente implements ActionListener, ListSelectionListener {
 			listaClientesCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listaClientesCadastrados.setVisibleRowCount(10);
 
-			cadastroCliente.setBounds(70, 177, 100, 30);
-			refreshCliente.setBounds(200, 177, 100, 30);
+			cadastroCliente.setBounds(70, 190, 100, 30);
+			refreshCliente.setBounds(200, 190, 100, 30);
+			
+			nomeBusca.setBounds(20, 240, 230, 30);
+			busca.setBounds(270, 240, 100, 30);
 
 			janela.setLayout(null);
 
@@ -41,12 +48,16 @@ public class ViewCliente implements ActionListener, ListSelectionListener {
 			janela.add(listaClientesCadastrados);
 			janela.add(cadastroCliente);
 			janela.add(refreshCliente);
+			janela.add(nomeBusca);
+			janela.add(busca);
 
-			janela.setSize(400, 300);
+			janela.setSize(400, 320);
+			janela.setLocationRelativeTo(null);
 			janela.setVisible(true);
 
 			cadastroCliente.addActionListener(this);
 			refreshCliente.addActionListener(this);
+			busca.addActionListener(this);
 			listaClientesCadastrados.addListSelectionListener(this);
 
 			break;
@@ -68,6 +79,27 @@ public class ViewCliente implements ActionListener, ListSelectionListener {
 			listaClientesCadastrados.setListData(new ControleCliente(dados).getNomeCliente());			
 			listaClientesCadastrados.updateUI();
 		}
+		
+		if (src == busca) {
+			String digitado = nomeBusca.getText();
+			int i = 0;
+			String[] nome = new String[1];
+			boolean achado = false;
+			
+			do {
+				nome[0] = dados.getModeloDados().getCliente()[i].getNomeCliente();
+				if(digitado.toUpperCase().equals(nome[0].toUpperCase())) {
+					listaClientesCadastrados.setListData(nome);
+					listaClientesCadastrados.updateUI();
+					achado = true;
+				}
+				i++;
+			}while(i < dados.getQtdCliente() && achado == false);
+			
+			if(!achado)
+				mensagemErroBusca();
+		}
+
 
 	}
 
@@ -78,5 +110,9 @@ public class ViewCliente implements ActionListener, ListSelectionListener {
 			new ViewDetalheCliente().inserirEditar(2, dados, this, listaClientesCadastrados.getSelectedIndex());
 		}
 	}
-
+	
+	public void mensagemErroBusca() {
+		JOptionPane.showMessageDialog(null,"Clientes não encontrado.\n " , null, 
+				JOptionPane.ERROR_MESSAGE);
+	}
 }

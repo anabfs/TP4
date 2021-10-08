@@ -29,7 +29,7 @@ public class ViewDetalhePerfume implements ActionListener {
 	private JTextField valorFamilia;
 	private JLabel labelSub = new JLabel("Sub familia olfativa: ");
 	private JTextField valorSub;
-	private JLabel labelConsen = new JLabel("Consentracao: ");
+	private JLabel labelConsen = new JLabel("Consentração: ");
 	private JTextField valorConsen;
 	
 	private JButton botaoExcluir = new JButton("Excluir");
@@ -74,7 +74,6 @@ public class ViewDetalhePerfume implements ActionListener {
 			valorFamilia = new JTextField(200);
 			valorSub = new JTextField(200);
 			valorConsen = new JTextField(200);
-			
 			botaoSalvar.setBounds(245, 300, 115, 30);
 		}
 		
@@ -126,11 +125,13 @@ public class ViewDetalhePerfume implements ActionListener {
 		this.janela.setLayout(null);
 
 		this.janela.setSize(400, 400);
+		janela.setLocationRelativeTo(null);
 		this.janela.setVisible(true);
 
 		botaoSalvar.addActionListener(this);
 		botaoExcluir.addActionListener(this);
 	}
+
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if (src == botaoSalvar) {
@@ -173,7 +174,7 @@ public class ViewDetalhePerfume implements ActionListener {
 				if (res)
 					mensagemSucessoExclusao();
 				else
-					mensagemErroExclusaoVenda();
+					mensagemErroExclusao();
 			}
 
 		}
@@ -191,12 +192,14 @@ public class ViewDetalhePerfume implements ActionListener {
 	}
 
 	public void mensagemErroCadastro() {
-		JOptionPane.showMessageDialog(null,"ERRO AO SALVAR OS DADOS!\n ", null, 
+		JOptionPane.showMessageDialog(null,"ERRO AO SALVAR OS DADOS!\n "+ "Pode ter ocorrido um dos dois erros a seguir:  \n"
+				+ "1. Nem todos os campos foram preenchidos \n"
+				+ "2. Tamanho ou preço não contém apenas números", null, 
 				JOptionPane.ERROR_MESSAGE);
 	}
 
-	public void mensagemErroExclusaoVenda() {
-		JOptionPane.showMessageDialog(null,"Ocorreu um erro ao excluir o dado.\n ", null, 
+	public void mensagemErroExclusao() {
+		JOptionPane.showMessageDialog(null,"Ocorreu um erro ao excluir o dado.\n " , null, 
 				JOptionPane.ERROR_MESSAGE);
 	}
 		

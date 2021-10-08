@@ -28,7 +28,7 @@ public class ViewDetalheHidratante implements ActionListener {
 	private JTextField valorFamilia;
 	private JLabel labelTipo = new JLabel("Tipo: ");
 	private JTextField valorTipo;
-	private JLabel labelDescricao = new JLabel("Descricao: ");
+	private JLabel labelDescricao = new JLabel("Descrição: ");
 	private JTextField valorDescricao;
 	
 	private JButton botaoExcluir = new JButton("Excluir");
@@ -74,21 +74,21 @@ public class ViewDetalheHidratante implements ActionListener {
 		}
 		
 		labelNomeProduto.setBounds(30, 20, 150, 25);
-		valorNomeProduto.setBounds(180, 20, 180, 25); 		
+		valorNomeProduto.setBounds(130, 20, 230, 25); 		
 		labelLinhaProduto.setBounds(30, 50, 150, 25);
-		valorLinhaProduto.setBounds(180, 50, 180, 25);		
+		valorLinhaProduto.setBounds(130, 50, 230, 25);		
 		labelTamanho.setBounds(30, 80, 150, 25);
-		valorTamanho.setBounds(180, 80, 180, 25); 		
+		valorTamanho.setBounds(130, 80, 230, 25); 		
 		labelMarca.setBounds(30, 110, 150, 25);
-		valorMarca.setBounds(180, 110, 180, 25);		
+		valorMarca.setBounds(130, 110, 230, 25);		
 		labelPreco.setBounds(30, 140, 150, 25);
-		valorPreco.setBounds(180, 140, 180, 25);		
+		valorPreco.setBounds(130, 140, 230, 25);		
 		labelFamilia.setBounds(30, 170, 150, 25);
-		valorFamilia.setBounds(180, 170, 180, 25);		
+		valorFamilia.setBounds(130, 170, 230, 25);		
 		labelTipo.setBounds(30, 200, 150, 25);
-		valorTipo.setBounds(180, 200, 180, 25);	
+		valorTipo.setBounds(130, 200, 230, 25);	
 		labelDescricao.setBounds(30, 230, 150, 25);
-		valorDescricao.setBounds(180, 230, 180, 25);
+		valorDescricao.setBounds(130, 230, 230, 25);
 		
 		if(op == 2) {
 			botaoSalvar.setBounds(100, 300, 115, 30);
@@ -116,6 +116,7 @@ public class ViewDetalheHidratante implements ActionListener {
 		this.janela.setLayout(null);
 		
 		this.janela.setSize(400, 400);
+		janela.setLocationRelativeTo(null);
 		this.janela.setVisible(true);
 		
 		botaoSalvar.addActionListener(this);

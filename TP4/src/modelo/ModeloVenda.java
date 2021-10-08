@@ -9,7 +9,6 @@ public class ModeloVenda {
 
     public ModeloVenda(String idvenda, float precoVenda) {
         this.IDVenda = idvenda;
-        this.produtoVenda = produtoVenda;
         this.precoVenda = precoVenda;
     }
 

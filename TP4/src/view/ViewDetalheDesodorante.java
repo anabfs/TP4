@@ -72,21 +72,21 @@ public class ViewDetalheDesodorante implements ActionListener {
 			botaoSalvar.setBounds(245, 300, 115, 30);
 		}
 		labelNomeProduto.setBounds(30, 20, 150, 25);
-		valorNomeProduto.setBounds(180, 20, 180, 25); 	
+		valorNomeProduto.setBounds(100, 20, 260, 25); 	
 		labelLinhaProduto.setBounds(30, 50, 150, 25);
-		valorLinhaProduto.setBounds(180, 50, 180, 25);	
+		valorLinhaProduto.setBounds(100, 50, 260, 25);	
 		labelTamanho.setBounds(30, 80, 150, 25);
-		valorTamanho.setBounds(180, 80, 180, 25); 	
+		valorTamanho.setBounds(100, 80, 260, 25); 	
 		labelMarca.setBounds(30, 110, 150, 25);
-		valorMarca.setBounds(180, 110, 180, 25);		
+		valorMarca.setBounds(100, 110, 260, 25);		
 		labelPreco.setBounds(30, 140, 150, 25);
-		valorPreco.setBounds(180, 140, 180, 25);		
+		valorPreco.setBounds(100, 140, 260, 25);		
 		labelGenero.setBounds(30, 170, 150, 25);
-		valorGenero.setBounds(180, 170, 180, 25);		
+		valorGenero.setBounds(100, 170, 260, 25);		
 		labelTipo.setBounds(30, 200, 150, 25);
-		valorTipo.setBounds(180, 200, 180, 25);		
+		valorTipo.setBounds(100, 200, 260, 25);		
 		labelDescricao.setBounds(30, 230, 150, 25);
-		valorDescricao.setBounds(180, 230, 180, 25);
+		valorDescricao.setBounds(100, 230, 260, 50);
 		
 		if(op == 2) {
 			botaoSalvar.setBounds(120, 300, 115, 30);
@@ -114,6 +114,7 @@ public class ViewDetalheDesodorante implements ActionListener {
 		this.janela.setLayout(null);
 		
 		this.janela.setSize(400, 400);
+		janela.setLocationRelativeTo(null);
 		this.janela.setVisible(true);
 
 		botaoSalvar.addActionListener(this);
@@ -183,19 +184,9 @@ public class ViewDetalheDesodorante implements ActionListener {
 						+ "2. Tamanho ou preço não contém apenas números",
 				null, JOptionPane.ERROR_MESSAGE);
 	}
-
-	public void mensagemErroExclusaoPerfume() {
-		JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o dado.\n ", 
-				null, JOptionPane.ERROR_MESSAGE);
-	}
-
+	
 	public void mensagemErroExclusaoDesodorante() {
 		JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o dado.\n ", 
 				null, JOptionPane.ERROR_MESSAGE);
-	}
-
-	public void mensagemErroExclusaoHidratante() {
-		JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o dado.\n ", 
-				null ,JOptionPane.ERROR_MESSAGE);
 	}
 }

@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -20,6 +21,8 @@ public class ViewPerfume implements ActionListener, ListSelectionListener {
 	private JLabel titulo;
 	private JButton cadastroPerfume;
 	private JButton refreshPerfume;
+	private JButton busca;
+	private JTextField nomeBusca;
 	private static ControleDados dados;
 	private JList<String> listaPerfumeCadastrados;
 	
@@ -36,6 +39,8 @@ public class ViewPerfume implements ActionListener, ListSelectionListener {
 			titulo = new JLabel("Perfumes cadastrados");
 			cadastroPerfume = new JButton("Cadastrar");
 			refreshPerfume = new JButton("Refresh");
+			busca = new JButton("Pesquisar");
+			nomeBusca = new JTextField();
 
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
 			titulo.setBounds(70, 10, 300, 30);
@@ -43,8 +48,11 @@ public class ViewPerfume implements ActionListener, ListSelectionListener {
 			listaPerfumeCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listaPerfumeCadastrados.setVisibleRowCount(10);
 
-			cadastroPerfume.setBounds(70, 177, 100, 30);
-			refreshPerfume.setBounds(200, 177, 100, 30);
+			cadastroPerfume.setBounds(70, 190, 100, 30);
+			refreshPerfume.setBounds(200, 190, 100, 30);
+			
+			nomeBusca.setBounds(20, 240, 230, 30);
+			busca.setBounds(270, 240, 100, 30);
 
 			janela.setLayout(null);
 
@@ -52,12 +60,16 @@ public class ViewPerfume implements ActionListener, ListSelectionListener {
 			janela.add(listaPerfumeCadastrados);
 			janela.add(cadastroPerfume);
 			janela.add(refreshPerfume);
+			janela.add(nomeBusca);
+			janela.add(busca);
 
-			janela.setSize(400, 250);
+			janela.setSize(400, 320);
+			janela.setLocationRelativeTo(null);
 			janela.setVisible(true);
 
 			cadastroPerfume.addActionListener(this);
 			refreshPerfume.addActionListener(this);
+			busca.addActionListener(this);
 			listaPerfumeCadastrados.addListSelectionListener(this);
 		
 		}else{
@@ -76,6 +88,26 @@ public class ViewPerfume implements ActionListener, ListSelectionListener {
 			listaPerfumeCadastrados.updateUI();
 		}
 		
+		if (src == busca) {
+			String digitado = nomeBusca.getText();
+			int i = 0;
+			String[] nome = new String[1];
+			boolean achado = false;
+			
+			do {
+				nome[0] = dados.getModeloDados().getPerfume()[i].getNomeProduto();
+				if(digitado.toUpperCase().equals(nome[0].toUpperCase())) {
+					listaPerfumeCadastrados.setListData(nome);
+					listaPerfumeCadastrados.updateUI();
+					achado = true;
+				}
+				i++;
+			}while(i < dados.getModeloDados().getPerfume().length && achado == false);
+			
+			if(!achado)
+				mensagemErroBusca();
+		}
+		
 	}
 	
 	public void valueChanged(ListSelectionEvent e) {
@@ -85,6 +117,11 @@ public class ViewPerfume implements ActionListener, ListSelectionListener {
 			new ViewDetalhePerfume().inserirEditar(2, dados, this, listaPerfumeCadastrados.getSelectedIndex());
 		}
 		
+	}
+	
+	public void mensagemErroBusca() {
+		JOptionPane.showMessageDialog(null,"Perfume não encontrado.\n " , null, 
+				JOptionPane.ERROR_MESSAGE);
 	}
 
 }
